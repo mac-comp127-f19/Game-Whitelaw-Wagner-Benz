@@ -50,7 +50,7 @@ public class Ball extends Ellipse {
             xVel *= -1;
         }
         this.xPos += (dt * xVel);
-        this.setCenter(this.xPos, this.yPos);
+        this.setCenter(this.xPos, this.yPos)
     }
 
 }
