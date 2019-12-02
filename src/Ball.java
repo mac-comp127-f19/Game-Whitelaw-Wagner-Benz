@@ -53,9 +53,8 @@ public class Ball extends Ellipse {
      * @param bound the bounds of the game
      * @return true if ball can move
      */
-    /*
     public boolean moveBallLinear(double dt, Boundary bound) {
-        if(!boundaryCollision(bound)){
+        if(){
             xPos += (xVel * dt);
             yPos += (yVel * dt);
             this.setCenter(xPos, yPos);
@@ -63,35 +62,6 @@ public class Ball extends Ellipse {
         }
         return false;
     }
-
-    /**
-     * Detects if the ball collided with the boundaries. If the ball collides with the boundary,
-     * the ball will bounce off the boundary.
-     * @param bound The Boundary object used to outline the screen
-     * @return true If the Ball hit the boundary
-     */
-    /*
-    public boolean boundaryCollision(Boundary bound) {
-        if(getBottomY() + 1 >= bound.getHeight()) {
-            this.yVel *= -1.0001;
-            this.yPos -= 3;
-            return true;
-        } else if(getTopY() - 1 <= bound.getMinHeight()) {
-            this.yVel *= -1.0001;
-            this.yPos += 3;
-            return true;
-        }else if(getRightX() + 1 >= bound.getWidth()) {
-            this.xVel *= -1.0001;
-            this.xPos -= 3;
-            return true;
-        }else if(getLeftX() - 1 <= bound.getMinWid()) {
-            this.xVel *= -1.0001;
-            this.xPos += 3;
-            return true;
-        }
-        return false;
-    }
-    */
 
     /**
      * Gets the left mid-point(x coordinate) of the ball, using getCenter and subtracting half the radius
