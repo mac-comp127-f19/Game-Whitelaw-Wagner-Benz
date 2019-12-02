@@ -1,10 +1,13 @@
 import comp127graphics.CanvasWindow;
 
+import java.awt.*;
+
 public class Game {
 
     private CanvasWindow canvas;
     private Ball ball1;
     private Player player;
+    private Coin coin1;
 
     /**
      * Creates a new Game object
@@ -15,6 +18,9 @@ public class Game {
         ball1.addBall();
         player = new Player(20, 20, 20, canvas);
         player.addPlayer();
+        coin1 = new Coin(200, 200, 10, this.canvas);
+        coin1.addCoin();
+        canvas.setBackground(new Color(131, 143, 255));
         canvas.draw();
     }
 
@@ -25,7 +31,7 @@ public class Game {
 
     public void run(){
         canvas.animate(() -> {
-            ball1.moveBallLinear(.1, bound);
+            //ball1.moveBallLinear(.1, bound);
         });
     }
 
