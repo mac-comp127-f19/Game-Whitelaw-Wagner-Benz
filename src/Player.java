@@ -37,4 +37,20 @@ public class Player extends Rectangle {
     public void addPlayer() {
         this.canvas.add(this);
     }
+
+    public void moveUp(){
+
+    }
+
+    public void moveDown(){
+
+    }
+
+    public void moveRight(){
+
+    }
+
+    public void moveLeft(){
+
+    }
 }
