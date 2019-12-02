@@ -11,7 +11,7 @@ public class Game {
      */
     public Game() {
         canvas = new CanvasWindow("", 900, 900);
-        ball1 = new Ball(450, 450, 20, this.canvas);
+        ball1 = new Ball(450, 450, 10, 10, 20, this.canvas);
         ball1.addBall();
         player = new Player(20, 20, 20, canvas);
         player.addPlayer();
