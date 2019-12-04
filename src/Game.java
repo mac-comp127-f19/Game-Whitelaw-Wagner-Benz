@@ -12,7 +12,6 @@ public class Game {
     private Ball ball5;
     private Player player;
     private Boundary bound;
-    private Coin coin1;
 
     /**
      * Creates a new Game object
@@ -31,8 +30,6 @@ public class Game {
         ball5.addBall();
         player = new Player(20, 20, 20, canvas);
         player.addPlayer();
-        coin1 = new Coin(100, 100, 10, canvas);
-        coin1.addCoin();
         bound = new Boundary(canvas);
         bound.addBoundary();
         canvas.setBackground(new Color(131, 143, 255));
