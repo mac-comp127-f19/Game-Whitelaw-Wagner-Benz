@@ -1,5 +1,6 @@
 import comp127graphics.CanvasWindow;
 import comp127graphics.Ellipse;
+import comp127graphics.Line;
 
 import java.awt.*;
 
@@ -69,24 +70,19 @@ public class Ball extends Ellipse {
      * @return true if the ball collides with the bound
      */
     public boolean testBoundaryHit(Boundary bound) {
-        if(bound.getBound().testHit(this.getX(), this.getBottomY())) {
-            this.yVel *= -1;
-            this.yPos -= 2;
-            return true;
-        } else if(bound.getBound().testHit(this.getX(), this.getTopY())) {
-            this.yVel *= -1;
-            this.yPos += 2;
-            return true;
-        } else if(bound.getBound().testHit(this.getLeftX(), this.getY())) {
+        Line line1 = (Line) bound.getLines().get(0);
+        Line line2 = (Line) bound.getLines().get(1);
+        if (this.getLeftX() <= line1.getX1()) {
             this.xVel *= -1;
-            this.xPos += 2;
+            this.xPos += 5;
+            this.setCenter(this.xPos, this.yPos);
             return true;
-        } else if(bound.getBound().testHit(this.getRightX(), this.getY())) {
+        } else if (this.getRightX() >= line2.getX1()) {
             this.xVel *= -1;
-            this.xPos -= 2;
+            this.xPos -= 5;
+            this.setCenter(this.xPos, this.yPos);
             return true;
         }
-        this.setCenter(this.xPos, this.yPos);
         return false;
     }
 
@@ -121,5 +117,4 @@ public class Ball extends Ellipse {
     public double getBottomY() {
         return this.getCenter().getY() + radius/2 + .5;
     }
-
 }
