@@ -3,6 +3,7 @@ import comp127graphics.CanvasWindow;
 import comp127graphics.GraphicsGroup;
 import comp127graphics.GraphicsObject;
 import comp127graphics.Line;
+import comp127graphics.Rectangle;
 
 
 import java.awt.*;
@@ -27,6 +28,8 @@ public class Boundary{
     private GraphicsObject line14;
     private GraphicsObject line15;
     private GraphicsObject line16;
+    private GraphicsObject startRectangle;
+    private GraphicsObject endRectangle;
     private CanvasWindow canvas;
 
     public Boundary(CanvasWindow canvas){
@@ -78,8 +81,14 @@ public class Boundary{
         line15 = new Line(600,200,600,250);
         group.add(line15);
 
-        line15 = new Line(300,550,300,600);
-        group.add(line15);
+        line16 = new Line(300,550,300,600);
+        group.add(line16);
+
+        startRectangle = new Rectangle(40,200,160,400);
+        group.add(startRectangle);
+
+        endRectangle = new Rectangle(700,200,160,400);
+        group.add(endRectangle);
 
 
 
