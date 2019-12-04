@@ -1,4 +1,5 @@
 import comp127graphics.CanvasWindow;
+import comp127graphics.events.Key;
 
 import java.awt.*;
 
@@ -48,6 +49,22 @@ public class Game {
             ball3.moveBallLinear(.1, bound);
             ball4.moveBallLinear(.1, bound);
             ball5.moveBallLinear(.1, bound);
+        });
+        canvas.animate(() -> {
+            canvas.onKeyDown((keyboardEvent) -> {
+                if (keyboardEvent.getKey().equals(Key.DOWN_ARROW)){
+                    player.moveDown(.1);
+                }
+                if (keyboardEvent.getKey().equals(Key.UP_ARROW)){
+                    player.moveUp(.1);
+                }
+                if (keyboardEvent.getKey().equals(Key.RIGHT_ARROW)){
+                    player.moveRight(.1);
+                }
+                if (keyboardEvent.getKey().equals(Key.LEFT_ARROW)){
+                    player.moveLeft(.1);
+                }
+            });
         });
     }
 

@@ -1,4 +1,5 @@
 import comp127graphics.CanvasWindow;
+import comp127graphics.Point;
 import comp127graphics.Rectangle;
 
 import java.awt.*;
@@ -9,6 +10,8 @@ public class Player extends Rectangle {
     private final Color PLAYER_OUTLINE = new Color(108, 1, 8);
     private double xPos;
     private double yPos;
+    private double xVel;
+    private double yVel;
     private double length;
     private CanvasWindow canvas;
 
@@ -29,6 +32,8 @@ public class Player extends Rectangle {
         this.setStrokeWidth(this.length/5);
         this.canvas = canvas;
         this.setCenter(x, y);
+        this.xVel = 1;
+        this.yVel = 1;
     }
 
     /**
@@ -38,19 +43,23 @@ public class Player extends Rectangle {
         this.canvas.add(this);
     }
 
-    public void moveUp(){
-
+    public void moveUp(double dt){
+        yPos = yPos - yVel*dt;
+        this.setCenter(new Point(xPos, yPos));
     }
 
-    public void moveDown(){
-
+    public void moveDown(double dt){
+        yPos = yPos + yVel*dt;
+        this.setCenter(new Point(xPos, yPos));
     }
 
-    public void moveRight(){
-
+    public void moveRight(double dt){
+        xPos = xPos + xVel*dt;
+        this.setCenter(new Point(xPos, yPos));
     }
 
-    public void moveLeft(){
-
+    public void moveLeft(double dt){
+        xPos = xPos - xVel*dt;
+        this.setCenter(new Point(xPos, yPos));
     }
 }
