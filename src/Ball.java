@@ -54,12 +54,39 @@ public class Ball extends Ellipse {
      * @return true if ball can move
      */
     public boolean moveBallLinear(double dt, Boundary bound) {
-        if(){
+        if(!testBoundaryHit(bound)){
             xPos += (xVel * dt);
             yPos += (yVel * dt);
             this.setCenter(xPos, yPos);
             return true;
         }
+        return false;
+    }
+
+    /**
+     * Tests if this object collides with the boundary of the game
+     * @param bound the boundary for the level
+     * @return true if the ball collides with the bound
+     */
+    public boolean testBoundaryHit(Boundary bound) {
+        if(bound.getBound().testHit(this.getX(), this.getBottomY())) {
+            this.yVel *= -1;
+            this.yPos -= 2;
+            return true;
+        } else if(bound.getBound().testHit(this.getX(), this.getTopY())) {
+            this.yVel *= -1;
+            this.yPos += 2;
+            return true;
+        } else if(bound.getBound().testHit(this.getLeftX(), this.getY())) {
+            this.xVel *= -1;
+            this.xPos += 2;
+            return true;
+        } else if(bound.getBound().testHit(this.getRightX(), this.getY())) {
+            this.xVel *= -1;
+            this.xPos -= 2;
+            return true;
+        }
+        this.setCenter(this.xPos, this.yPos);
         return false;
     }
 

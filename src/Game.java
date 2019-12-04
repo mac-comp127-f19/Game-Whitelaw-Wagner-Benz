@@ -31,7 +31,7 @@ public class Game {
 
     public void run(){
         canvas.animate(() -> {
-            //ball1.moveBallLinear(.1, bound);
+            ball1.moveBallLinear(.1, bound);
         });
     }
 
