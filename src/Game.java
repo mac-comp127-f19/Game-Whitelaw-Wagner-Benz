@@ -18,6 +18,8 @@ public class Game {
      */
     public Game() {
         canvas = new CanvasWindow("", 900, 900);
+        bound = new Boundary(canvas);
+        bound.addBoundary();
         ball1 = new Ball(450, 300, 50, 0, 20, this.canvas);
         ball1.addBall();
         ball2 = new Ball(450, 400, 50, 0, 20, this.canvas);
@@ -30,8 +32,6 @@ public class Game {
         ball5.addBall();
         player = new Player(20, 20, 20, canvas);
         player.addPlayer();
-        bound = new Boundary(canvas);
-        bound.addBoundary();
         canvas.setBackground(new Color(131, 143, 255));
         canvas.draw();
     }
