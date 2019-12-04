@@ -88,5 +88,8 @@ public class Boundary{
     public void addBoundary(){
         this.canvas.add(group);
     }
+    public GraphicsGroup getBound(){
+        return group;
+    }
 
 }
