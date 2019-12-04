@@ -7,6 +7,8 @@ import comp127graphics.Rectangle;
 
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Boundary{
@@ -99,6 +101,10 @@ public class Boundary{
     }
     public GraphicsGroup getBound(){
         return group;
+    }
+
+    public List getLines() {
+        return List.of(line11, line12);
     }
 
 }

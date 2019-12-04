@@ -8,7 +8,6 @@ public class Game {
     private Ball ball1;
     private Player player;
     private Coin coin1;
-    private Boundary bound;
 
     /**
      * Creates a new Game object
@@ -17,8 +16,6 @@ public class Game {
         canvas = new CanvasWindow("", 900, 900);
         ball1 = new Ball(450, 450, 10, 10, 20, this.canvas);
         ball1.addBall();
-        bound = new Boundary(canvas);
-        bound.addBoundary();
         player = new Player(20, 20, 20, canvas);
         player.addPlayer();
         coin1 = new Coin(200, 200, 10, this.canvas);
