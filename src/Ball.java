@@ -70,16 +70,24 @@ public class Ball extends Ellipse {
      * @return true if the ball collides with the bound
      */
     public boolean testBoundaryHit(Boundary bound) {
-        Line line1 = (Line) bound.getLines().get(0);
-        Line line2 = (Line) bound.getLines().get(1);
-        if (this.getLeftX() <= line1.getX1()) {
-            this.xVel *= -1;
-            this.xPos += 5;
+        if(bound.getBound().testHit(this.getX(), this.getBottomY())) {
+            this.yVel *= -1;
+            this.yPos -= 2;
             this.setCenter(this.xPos, this.yPos);
             return true;
-        } else if (this.getRightX() >= line2.getX1()) {
+        } else if(bound.getBound().testHit(this.getX(), this.getTopY())) {
+            this.yVel *= -1;
+            this.yPos += 2;
+            this.setCenter(this.xPos, this.yPos);
+            return true;
+        } else if(bound.getBound().testHit(this.getLeftX(), this.getY())) {
             this.xVel *= -1;
-            this.xPos -= 5;
+            this.xPos += 2;
+            this.setCenter(this.xPos, this.yPos);
+            return true;
+        } else if(bound.getBound().testHit(this.getRightX(), this.getY())) {
+            this.xVel *= -1;
+            this.xPos -= 2;
             this.setCenter(this.xPos, this.yPos);
             return true;
         }
