@@ -33,6 +33,10 @@ public class Boundary{
     private Rectangle startRectangle;
     private Rectangle endRectangle;
     private Rectangle middleRectangle;
+    private Rectangle leftFillRectangle;
+    private Rectangle rightFillRectangle;
+    private Rectangle leftFillRectangle2;
+    private Rectangle rightFillRectangle2;
     private CanvasWindow canvas;
 
     public Boundary(CanvasWindow canvas){
@@ -115,6 +119,26 @@ public class Boundary{
         middleRectangle.setFillColor(Color.gray);
         middleRectangle.setStrokeColor(Color.gray);
         group.add(middleRectangle);
+
+        leftFillRectangle = new Rectangle(196.5,553.75,57.5,50-8);
+        leftFillRectangle.setFillColor(Color.gray);
+        leftFillRectangle.setStrokeColor(Color.gray);
+        group.add(leftFillRectangle);
+
+        rightFillRectangle = new Rectangle(646.5,203.75,57.5,50-8);
+        rightFillRectangle.setFillColor(Color.gray);
+        rightFillRectangle.setStrokeColor(Color.gray);
+        group.add(rightFillRectangle);
+
+        leftFillRectangle2 = new Rectangle(254,546.5,50-8,49.5);
+        leftFillRectangle2.setFillColor(Color.gray);
+        leftFillRectangle2.setStrokeColor(Color.gray);
+        group.add(leftFillRectangle2);
+
+        rightFillRectangle2 = new Rectangle(603.75,203.5,50-8,49.5);
+        rightFillRectangle2.setFillColor(Color.gray);
+        rightFillRectangle2.setStrokeColor(Color.gray);
+        group.add(rightFillRectangle2);
     }
     public void addBoundary(){
         this.canvas.add(group);
