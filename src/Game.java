@@ -43,29 +43,41 @@ public class Game {
     }
 
     public void run(){
-        canvas.animate(() -> {
+//       canvas.animate(() -> {
+//            ball1.moveBallLinear(.1, bound);
+//            ball2.moveBallLinear(.1, bound);
+//            ball3.moveBallLinear(.1, bound);
+//            ball4.moveBallLinear(.1, bound);
+//            ball5.moveBallLinear(.1, bound);
+//        });
+      canvas.animate(() -> {
+            canvas.onKeyDown((keyboardEvent) -> {
+                if (keyboardEvent.getKey().equals(Key.DOWN_ARROW)) {
+                    player.moveDown(.01);
+                }
+                if (keyboardEvent.getKey().equals(Key.UP_ARROW)) {
+                    player.moveUp(.01);
+                }
+                if (keyboardEvent.getKey().equals(Key.RIGHT_ARROW)) {
+                    player.moveRight(.01);
+                }
+                if (keyboardEvent.getKey().equals(Key.LEFT_ARROW)) {
+                    player.moveLeft(.01);
+                }
+
+            ball1.moveBallLinear(.01, bound);
+            ball2.moveBallLinear(.01, bound);
+            ball3.moveBallLinear(.01, bound);
+            ball4.moveBallLinear(.01, bound);
+            ball5.moveBallLinear(.01, bound);
+            });
+
             ball1.moveBallLinear(.1, bound);
             ball2.moveBallLinear(.1, bound);
             ball3.moveBallLinear(.1, bound);
             ball4.moveBallLinear(.1, bound);
             ball5.moveBallLinear(.1, bound);
-        });
-        canvas.animate(() -> {
-            canvas.onKeyDown((keyboardEvent) -> {
-                if (keyboardEvent.getKey().equals(Key.DOWN_ARROW)){
-                    player.moveDown(.1);
-                }
-                if (keyboardEvent.getKey().equals(Key.UP_ARROW)){
-                    player.moveUp(.1);
-                }
-                if (keyboardEvent.getKey().equals(Key.RIGHT_ARROW)){
-                    player.moveRight(.1);
-                }
-                if (keyboardEvent.getKey().equals(Key.LEFT_ARROW)){
-                    player.moveLeft(.1);
-                }
             });
-        });
     }
 
 }
