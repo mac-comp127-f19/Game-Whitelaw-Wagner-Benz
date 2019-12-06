@@ -33,7 +33,7 @@ public class Game {
         ball4.addBall();
         ball5 = new Ball(450, 465, -250, 0, 25, this.canvas);
         ball5.addBall();
-        player = new Player(20, 20, 20, canvas);
+        player = new Player(125, 400, 20, canvas);
         player.addPlayer();
         canvas.setBackground(new Color(131, 143, 255));
         canvas.draw();
