@@ -54,14 +54,12 @@ public class Ball extends Ellipse {
      * @param bound the bounds of the game
      * @return true if ball can move
      */
-    public boolean moveBallLinear(double dt, Boundary bound) {
+    public void moveBallLinear(double dt, Boundary bound) {
         if(!testBoundaryHit(bound)){
             xPos += (xVel * dt);
             yPos += (yVel * dt);
             this.setCenter(xPos, yPos);
-            return true;
         }
-        return false;
     }
 
     /**
