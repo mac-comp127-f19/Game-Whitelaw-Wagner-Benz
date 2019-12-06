@@ -114,7 +114,11 @@ public class Ball extends Ellipse {
         return this.getCenter().getY() + radius/2 + 5;
     }
 
-    public boolean testHit(Player player){
-
+    public boolean testPlayerHit(Player player){
+        if (this.testHit(player.getX(), player.getY())||this.testHit(player.getX(), player.getY())
+        ||this.testHit(player.getX(), player.getY())||this.testHit(player.getX(), player.getY())){
+            return true;
+        }
+        return false;
     }
 }

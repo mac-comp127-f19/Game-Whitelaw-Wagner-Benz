@@ -2,6 +2,7 @@ import comp127graphics.CanvasWindow;
 import comp127graphics.events.Key;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -13,6 +14,7 @@ public class Game {
     private Ball ball5;
     private Player player;
     private Boundary bound;
+    private ArrayList<Ball> balls;
 
     /**
      * Creates a new Game object
@@ -35,6 +37,12 @@ public class Game {
         player.addPlayer();
         canvas.setBackground(new Color(131, 143, 255));
         canvas.draw();
+        balls = new ArrayList<>();
+        balls.add(ball1);
+        balls.add(ball2);
+        balls.add(ball3);
+        balls.add(ball4);
+        balls.add(ball5);
     }
 
     public static void main(String[] args) {
@@ -54,6 +62,11 @@ public class Game {
             if (mouseMotionEvent.getPosition().getX()-player.getCenter().getX()<30&&mouseMotionEvent.getPosition().getX()-player.getCenter().getX()>-30
                     &&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()<30&&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()>-30)
                 player.setCenter(mouseMotionEvent.getPosition());
+            for (Ball ball : balls){
+                if (ball.testPlayerHit(player)){
+                    player.setCenter(0,0);
+                }
+            }
         });
     }
 
