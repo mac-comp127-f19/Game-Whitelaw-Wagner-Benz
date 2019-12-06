@@ -70,12 +70,12 @@ public class Ball extends Ellipse {
     public boolean testBoundaryHit(Boundary bound) {
         if(!bound.getBound().testHit(this.getLeftX(), this.getY())) {
             this.xVel *= -1;
-            this.xPos += 2;
+            this.xPos += 20;
             this.setCenter(this.xPos, this.yPos);
             return true;
         } else if(!bound.getBound().testHit(this.getRightX(), this.getY())) {
             this.xVel *= -1;
-            this.xPos -= 2;
+            this.xPos -= 20;
             this.setCenter(this.xPos, this.yPos);
             return true;
         }
@@ -87,7 +87,7 @@ public class Ball extends Ellipse {
      * @return double The left mid-point of the ball
      */
     public double getLeftX() {
-        return this.getCenter().getX() - radius/2 - .5;
+        return this.getCenter().getX() - radius/2 - 5;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Ball extends Ellipse {
      * @return double The right mid-point of the ball
      */
     public double getRightX() {
-        return this.getCenter().getX() + radius/2 + .5;
+        return this.getCenter().getX() + radius/2 + 5;
     }
 
     /**
@@ -103,7 +103,7 @@ public class Ball extends Ellipse {
      * @return double The top mid-point of the ball
      */
     public double getTopY() {
-        return this.getCenter().getY() - radius/2 - .5;
+        return this.getCenter().getY() - radius/2 - 5;
     }
 
     /**
@@ -111,6 +111,6 @@ public class Ball extends Ellipse {
      * @return double The bottom mid-point of the ball
      */
     public double getBottomY() {
-        return this.getCenter().getY() + radius/2 + .5;
+        return this.getCenter().getY() + radius/2 + 5;
     }
 }
