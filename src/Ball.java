@@ -113,4 +113,8 @@ public class Ball extends Ellipse {
     public double getBottomY() {
         return this.getCenter().getY() + radius/2 + 5;
     }
+
+    public boolean testHit(Player player){
+
+    }
 }

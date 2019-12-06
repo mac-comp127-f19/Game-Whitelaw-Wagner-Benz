@@ -42,31 +42,4 @@ public class Player extends Rectangle {
     public void addPlayer() {
         this.canvas.add(this);
     }
-
-    public void moveUp(double dt){
-        yPos = yPos - yVel*dt;
-        this.setCenter(new Point(xPos, yPos));
-    }
-
-    public void moveDown(double dt){
-        yPos = yPos + yVel*dt;
-        this.setCenter(new Point(xPos, yPos));
-    }
-
-    public void moveRight(double dt){
-        xPos = xPos + xVel*dt;
-        System.out.println("" + xVel + xPos);
-        this.setCenter(new Point(xPos, yPos));
-    }
-
-    public void moveLeft(double dt){
-        xPos = xPos - xVel*dt;
-        this.setCenter(new Point(xPos, yPos));
-    }
-
-    public void stop(){
-        xPos = this.getX();
-        yPos = this.getY();
-        this.setCenter(new Point(xPos, yPos));
-    }
 }

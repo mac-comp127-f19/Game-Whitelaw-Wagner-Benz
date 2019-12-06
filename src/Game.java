@@ -51,8 +51,8 @@ public class Game {
             ball5.moveBallLinear(.1, bound);
         });
         canvas.onDrag((mouseMotionEvent) -> {
-            if (mouseMotionEvent.getPosition().getX()-player.getCenter().getX()<20&&mouseMotionEvent.getPosition().getX()-player.getCenter().getX()>-20
-                    &&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()<20&&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()>-20)
+            if (mouseMotionEvent.getPosition().getX()-player.getCenter().getX()<30&&mouseMotionEvent.getPosition().getX()-player.getCenter().getX()>-30
+                    &&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()<30&&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()>-30)
                 player.setCenter(mouseMotionEvent.getPosition());
         });
     }
