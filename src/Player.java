@@ -32,8 +32,8 @@ public class Player extends Rectangle {
         this.setStrokeWidth(this.length/5);
         this.canvas = canvas;
         this.setCenter(x, y);
-        this.xVel = 20;
-        this.yVel = 20;
+        this.xVel = 10;
+        this.yVel = 10;
     }
 
     /**
@@ -55,6 +55,7 @@ public class Player extends Rectangle {
 
     public void moveRight(double dt){
         xPos = xPos + xVel*dt;
+        System.out.println("" + xVel + xPos);
         this.setCenter(new Point(xPos, yPos));
     }
 

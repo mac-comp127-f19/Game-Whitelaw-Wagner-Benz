@@ -43,41 +43,18 @@ public class Game {
     }
 
     public void run(){
-//       canvas.animate(() -> {
-//            ball1.moveBallLinear(.1, bound);
-//            ball2.moveBallLinear(.1, bound);
-//            ball3.moveBallLinear(.1, bound);
-//            ball4.moveBallLinear(.1, bound);
-//            ball5.moveBallLinear(.1, bound);
-//        });
-      canvas.animate(() -> {
-            canvas.onKeyDown((keyboardEvent) -> {
-                if (keyboardEvent.getKey().equals(Key.DOWN_ARROW)) {
-                    player.moveDown(.01);
-                }
-                if (keyboardEvent.getKey().equals(Key.UP_ARROW)) {
-                    player.moveUp(.01);
-                }
-                if (keyboardEvent.getKey().equals(Key.RIGHT_ARROW)) {
-                    player.moveRight(.01);
-                }
-                if (keyboardEvent.getKey().equals(Key.LEFT_ARROW)) {
-                    player.moveLeft(.01);
-                }
-
-            ball1.moveBallLinear(.01, bound);
-            ball2.moveBallLinear(.01, bound);
-            ball3.moveBallLinear(.01, bound);
-            ball4.moveBallLinear(.01, bound);
-            ball5.moveBallLinear(.01, bound);
-            });
-
+        canvas.animate(() -> {
             ball1.moveBallLinear(.1, bound);
             ball2.moveBallLinear(.1, bound);
             ball3.moveBallLinear(.1, bound);
             ball4.moveBallLinear(.1, bound);
             ball5.moveBallLinear(.1, bound);
-            });
+        });
+        canvas.onDrag((mouseMotionEvent) -> {
+            if (mouseMotionEvent.getPosition().getX()-player.getCenter().getX()<10&&mouseMotionEvent.getPosition().getX()-player.getCenter().getX()>-10
+                    &&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()<10&&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()>-10)
+                player.setCenter(mouseMotionEvent.getPosition());
+        });
     }
 
 }
