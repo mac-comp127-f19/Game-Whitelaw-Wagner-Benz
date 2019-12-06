@@ -23,15 +23,15 @@ public class Game {
         canvas = new CanvasWindow("", 900, 900);
         bound = new Boundary(canvas);
         bound.addBoundary();
-        ball1 = new Ball(450, 275, 250, 0, 25, this.canvas);
+        ball1 = new Ball(450, 275, 150, 0, 25, this.canvas);
         ball1.addBall();
-        ball2 = new Ball(450, 400, 250, 0, 25, this.canvas);
+        ball2 = new Ball(450, 400, 150, 0, 25, this.canvas);
         ball2.addBall();
-        ball3 = new Ball(450, 525, 250, 0, 25, this.canvas);
+        ball3 = new Ball(450, 525, 150, 0, 25, this.canvas);
         ball3.addBall();
-        ball4 = new Ball(450, 335, -250, 0, 25, this.canvas);
+        ball4 = new Ball(450, 335, -150, 0, 25, this.canvas);
         ball4.addBall();
-        ball5 = new Ball(450, 465, -250, 0, 25, this.canvas);
+        ball5 = new Ball(450, 465, -150, 0, 25, this.canvas);
         ball5.addBall();
         player = new Player(125, 400, 20, canvas);
         player.addPlayer();
@@ -64,7 +64,7 @@ public class Game {
                 player.setCenter(mouseMotionEvent.getPosition());
             for (Ball ball : balls){
                 if (ball.testPlayerHit(player)){
-                    player.setCenter(0,0);
+                    player.setCenter(125,400);
                 }
             }
         });
