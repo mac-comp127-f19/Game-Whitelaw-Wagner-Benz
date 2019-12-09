@@ -149,4 +149,8 @@ public class Boundary{
     public GraphicsGroup getBound(){
         return bounds;
     }
+
+    public GraphicsGroup getGroup() {
+        return group;
+    }
 }

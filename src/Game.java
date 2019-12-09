@@ -15,6 +15,7 @@ public class Game {
     private Player player;
     private Boundary bound;
     private ArrayList<Ball> balls;
+    private boolean boundHit;
 
     /**
      * Creates a new Game object
@@ -43,6 +44,7 @@ public class Game {
         balls.add(ball3);
         balls.add(ball4);
         balls.add(ball5);
+        boundHit = player.testBoundaryHit(bound);
     }
 
     public static void main(String[] args) {
@@ -50,24 +52,26 @@ public class Game {
         game.run();
     }
 
-    public void run(){
+    public void run() {
         canvas.animate(() -> {
+            boundHit = player.testBoundaryHit(bound);
             ball1.moveBallLinear(.1, bound);
             ball2.moveBallLinear(.1, bound);
             ball3.moveBallLinear(.1, bound);
             ball4.moveBallLinear(.1, bound);
             ball5.moveBallLinear(.1, bound);
-        });
-        canvas.onDrag((mouseMotionEvent) -> {
-            if (mouseMotionEvent.getPosition().getX()-player.getCenter().getX()<30&&mouseMotionEvent.getPosition().getX()-player.getCenter().getX()>-30
-                    &&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()<30&&mouseMotionEvent.getPosition().getY()-player.getCenter().getY()>-30)
-                player.setCenter(mouseMotionEvent.getPosition());
-            for (Ball ball : balls){
-                if (ball.testPlayerHit(player)){
-                    player.setCenter(125,400);
+            for (Ball ball : balls) {
+                if (ball.testPlayerHit(player)) {
+                    player.setCenter(125, 400);
                 }
             }
         });
+        canvas.onDrag((mouseMotionEvent) -> {
+            boolean test1 = mouseMotionEvent.getPosition().getX() - player.getCenter().getX() < 30 && mouseMotionEvent.getPosition().getX() - player.getCenter().getX() > -30;
+            boolean test2 = mouseMotionEvent.getPosition().getY() - player.getCenter().getY() < 30 && mouseMotionEvent.getPosition().getY() - player.getCenter().getY() > -30;
+            if (test1 && test2 && !boundHit && bound.getGroup().testHit(mouseMotionEvent.getPosition().getX(), mouseMotionEvent.getPosition().getY())) {
+                player.setCenter(mouseMotionEvent.getPosition());
+            }
+        });
     }
-
 }

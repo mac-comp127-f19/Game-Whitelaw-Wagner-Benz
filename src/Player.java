@@ -8,10 +8,6 @@ public class Player extends Rectangle {
 
     private final Color PLAYER_COLOR = Color.RED;
     private final Color PLAYER_OUTLINE = new Color(108, 1, 8);
-    private double xPos;
-    private double yPos;
-    private double xVel;
-    private double yVel;
     private double length;
     private CanvasWindow canvas;
 
@@ -24,16 +20,12 @@ public class Player extends Rectangle {
      */
     public Player(double x, double y, double length, CanvasWindow canvas) {
         super(x, y, length, length);
-        this.xPos = x;
-        this.yPos = y;
         this.length = length;
         this.setFillColor(PLAYER_COLOR);
         this.setStrokeColor(PLAYER_OUTLINE);
         this.setStrokeWidth(this.length/5);
         this.canvas = canvas;
         this.setCenter(x, y);
-        this.xVel = 10;
-        this.yVel = 10;
     }
 
     /**
@@ -41,5 +33,42 @@ public class Player extends Rectangle {
      */
     public void addPlayer() {
         this.canvas.add(this);
+    }
+
+    public boolean testBoundaryHit(Boundary bound) {
+        if(!bound.getGroup().testHit(this.getX() - 1, this.getY() + this.length/2)) {
+            double x = this.getCenter().getX();
+            double y = this.getCenter().getY();
+            this.setCenter(x + 2, y);
+            return true;
+        } else if(!bound.getGroup().testHit(this.getRightX() + 1, this.getY() + this.length/2)) {
+            double x = this.getCenter().getX();
+            double y = this.getCenter().getY();
+            this.setCenter(x - 2, y);
+            return true;
+        } else if(!bound.getGroup().testHit(this.getX() + this.length/2, this.getBottomY() + 1)) {
+            double x = this.getCenter().getX();
+            double y = this.getCenter().getY();
+            this.setCenter(x, y - 2);
+            return true;
+        } else if(!bound.getGroup().testHit(this.getX() + this.length/2, this.getY() - 1)) {
+            double x = this.getCenter().getX();
+            double y = this.getCenter().getY();
+            this.setCenter(x, y + 3);
+            return true;
+        }
+        return false;
+    }
+
+    public double getRightX() {
+        return this.getX() + this.length;
+    }
+
+    public double getBottomY() {
+        return this.getY() + this.length;
+    }
+
+    public double getLength() {
+        return this.length;
     }
 }

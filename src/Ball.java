@@ -78,6 +78,29 @@ public class Ball extends Ellipse {
             this.xPos -= 20;
             this.setCenter(this.xPos, this.yPos);
             return true;
+        } else if(!bound.getBound().testHit(this.getX(), this.getBottomY())) {
+            this.yVel *= -1;
+            this.yPos -= 20;
+            this.setCenter(this.xPos, this.yPos);
+            return true;
+        } else if(!bound.getBound().testHit(this.getX(), this.getTopY())) {
+            this.yVel *= -1;
+            this.yPos += 20;
+            this.setCenter(this.xPos, this.yPos);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean testPlayerHit(Player player) {
+        if(this.testHit(player.getX() - 1, player.getY() + player.getLength()/2)) {
+            return true;
+        } else if(this.testHit(player.getRightX() + 1, player.getY() + player.getLength()/2)) {
+            return true;
+        } else if(this.testHit(player.getX() + player.getLength()/2, player.getBottomY() + 1)) {
+            return true;
+        } else if(this.testHit(player.getX() + player.getLength()/2, player.getY() - 1)) {
+            return true;
         }
         return false;
     }
@@ -112,13 +135,5 @@ public class Ball extends Ellipse {
      */
     public double getBottomY() {
         return this.getCenter().getY() + radius/2 + 5;
-    }
-
-    public boolean testPlayerHit(Player player){
-        if (this.testHit(player.getX(), player.getY())||this.testHit(player.getX(), player.getY())
-        ||this.testHit(player.getX(), player.getY())||this.testHit(player.getX(), player.getY())){
-            return true;
-        }
-        return false;
     }
 }
