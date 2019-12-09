@@ -1,4 +1,5 @@
 import comp127graphics.CanvasWindow;
+import comp127graphics.GraphicsText;
 import comp127graphics.events.Key;
 
 import java.awt.*;
@@ -13,6 +14,7 @@ public class Game {
     private Ball ball4;
     private Ball ball5;
     private Ball ball6;
+    private GraphicsText instructions;
     private Player player;
     private Boundary bound;
     private ArrayList<Ball> balls;
@@ -37,7 +39,7 @@ public class Game {
         ball5.addBall();
         ball6 = new Ball(450, 525, -175, 0, 25, this.canvas);
         ball6.addBall();
-        player = new Player(125, 400, 20, canvas);
+        player = new Player(125, 400, 25, canvas);
         player.addPlayer();
         canvas.setBackground(new Color(131, 143, 255));
         canvas.draw();
@@ -49,6 +51,9 @@ public class Game {
         balls.add(ball5);
         balls.add(ball6);
         boundHit = player.testBoundaryHit(bound);
+        instructions = new GraphicsText("Get to the other green box to complete the level");
+        instructions.setFontSize(20);
+        canvas.add(instructions, 50, 50);
     }
 
     public static void main(String[] args) {
