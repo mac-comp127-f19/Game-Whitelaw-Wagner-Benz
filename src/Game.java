@@ -12,6 +12,7 @@ public class Game {
     private Ball ball3;
     private Ball ball4;
     private Ball ball5;
+    private Ball ball6;
     private Player player;
     private Boundary bound;
     private ArrayList<Ball> balls;
@@ -24,16 +25,18 @@ public class Game {
         canvas = new CanvasWindow("", 900, 900);
         bound = new Boundary(canvas);
         bound.addBoundary();
-        ball1 = new Ball(450, 275, 150, 0, 25, this.canvas);
+        ball1 = new Ball(450, 275, 175, 0, 25, this.canvas);
         ball1.addBall();
-        ball2 = new Ball(450, 400, 150, 0, 25, this.canvas);
+        ball2 = new Ball(450, 375, 175, 0, 25, this.canvas);
         ball2.addBall();
-        ball3 = new Ball(450, 525, 150, 0, 25, this.canvas);
+        ball3 = new Ball(450, 475, 175, 0, 25, this.canvas);
         ball3.addBall();
-        ball4 = new Ball(450, 335, -150, 0, 25, this.canvas);
+        ball4 = new Ball(450, 325, -175, 0, 25, this.canvas);
         ball4.addBall();
-        ball5 = new Ball(450, 465, -150, 0, 25, this.canvas);
+        ball5 = new Ball(450, 425, -175, 0, 25, this.canvas);
         ball5.addBall();
+        ball6 = new Ball(450, 525, -175, 0, 25, this.canvas);
+        ball6.addBall();
         player = new Player(125, 400, 20, canvas);
         player.addPlayer();
         canvas.setBackground(new Color(131, 143, 255));
@@ -44,6 +47,7 @@ public class Game {
         balls.add(ball3);
         balls.add(ball4);
         balls.add(ball5);
+        balls.add(ball6);
         boundHit = player.testBoundaryHit(bound);
     }
 
@@ -55,12 +59,8 @@ public class Game {
     public void run() {
         canvas.animate(() -> {
             boundHit = player.testBoundaryHit(bound);
-            ball1.moveBallLinear(.1, bound);
-            ball2.moveBallLinear(.1, bound);
-            ball3.moveBallLinear(.1, bound);
-            ball4.moveBallLinear(.1, bound);
-            ball5.moveBallLinear(.1, bound);
             for (Ball ball : balls) {
+                ball.moveBallLinear(.1, bound);
                 if (ball.testPlayerHit(player)) {
                     player.setCenter(125, 400);
                 }
