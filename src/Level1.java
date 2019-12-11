@@ -5,7 +5,7 @@ import comp127graphics.events.Key;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Game {
+public class Level1 implements Level{
 
     private CanvasWindow canvas;
     private Ball ball1;
@@ -23,7 +23,7 @@ public class Game {
     /**
      * Creates a new Game object
      */
-    public Game() {
+    public Level1() {
         canvas = new CanvasWindow("", 900, 900);
         bound = new Boundary(canvas);
         bound.addBoundary();
@@ -54,11 +54,6 @@ public class Game {
         instructions = new GraphicsText("Get to the other green box to complete the level");
         instructions.setFontSize(20);
         canvas.add(instructions, 50, 50);
-    }
-
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.run();
     }
 
     public void run() {
