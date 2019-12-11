@@ -18,6 +18,9 @@ public class GameManager {
     public Level getLevel() {
         return levels.get(numLev - 1);
     }
+    public void setNumLev(){
+        numLev+=1;
+    }
 
     public static void main(String[] args) {
         GameManager manager = new GameManager();

@@ -153,4 +153,7 @@ public class Boundary{
     public GraphicsGroup getGroup() {
         return group;
     }
+    public Rectangle getEndRectangle(){
+        return endRectangle;
+    }
 }

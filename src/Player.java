@@ -60,6 +60,14 @@ public class Player extends Rectangle {
         return false;
     }
 
+    public boolean testWin(Boundary bound, GameManager manager){
+        if(bound.getGroup().testHit(this.getRightX()+1,this.getY())){
+            manager.setNumLev();
+            return true;
+        }
+        return false;
+    }
+
     public double getRightX() {
         return this.getX() + this.length;
     }
