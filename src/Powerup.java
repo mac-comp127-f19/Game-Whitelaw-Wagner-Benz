@@ -3,10 +3,10 @@ import comp127graphics.Ellipse;
 
 import java.awt.*;
 
-public class Coin extends Ellipse {
+public class Powerup extends Ellipse {
 
-    private final Color COIN_COLOR = new Color(236, 230, 45);
-    private final Color COIN_OUTLINE = new Color(112, 109, 0);
+    private final Color POWERUP_COLOR = new Color(138, 40, 141);
+    private final Color POWERUP_OUTLINE = new Color(81, 42, 123);
 
     private double xPos;
     private double yPos;
@@ -20,22 +20,22 @@ public class Coin extends Ellipse {
      * @param y      position
      * @param radius width and height of ball
      */
-    public Coin(double x, double y, double radius, CanvasWindow canvas) {
+    public Powerup(double x, double y, double radius, CanvasWindow canvas) {
         super(x, y, radius, radius);
         this.xPos = x;
         this.yPos = y;
         this.radius = radius;
         this.canvas = canvas;
         this.setCenter(this.xPos, this.yPos);
-        this.setFillColor(COIN_COLOR);
-        this.setStrokeColor(COIN_OUTLINE);
+        this.setFillColor(POWERUP_COLOR);
+        this.setStrokeColor(POWERUP_OUTLINE);
         this.setStrokeWidth(this.radius/4);
     }
 
     /**
      * Adds the coin to the canvas
      */
-    public void addCoin() {
+    public void addPowerup() {
         this.canvas.add(this);
     }
 
